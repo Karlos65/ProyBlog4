@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BLOG</title>
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main1.css' %}">
+	
+</head>
+<body>
+	<!--otro menu-->
+	    <!-- START NAV -->
+		<nav class="navbar">
+			<div class="container">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="../">
+						<img src="{% static 'img/logo.png' %}" width="100" height="100" alt="Logo">
+					</a>
+					<span class="navbar-burger burger" data-target="navbarMenu">
+							<span></span>
+					<span></span>
+					<span></span>
+					</span>
+				</div>
+				<div id="navbarMenu" class="navbar-menu">
+					<div class="navbar-end">
+						
+						<a class="navbar-item is-active" href="{% url 'home' %}">HOME</a>	
+
+						<a class="navbar-item">QUIENES SOMOS</a>
+						<a class="navbar-item">MISION</a>
+						<a class="navbar-item">VISION</a>
+						<a class="navbar-item">LUGAR</a>
+						<a class="navbar-item">ARCHIVOS</a>
+						<a class="navbar-item" href="{% url 'noticias:listar_noticias' %}">NOTICIAS</a>
+						<a class="navbar-item">Help</a>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link">
+									Account
+								</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item">
+										Dashboard
+									</a>
+								<a class="navbar-item">
+										Profile
+									</a>
+								<a class="navbar-item">
+										Settings
+									</a>
+								<hr class="navbar-divider">
+								<div class="navbar-item">
+									Logout
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--fin menu-->
+		</nav>
+		<!-- END NAV -->
+		<br><br>
+	{% block contenido %}
+
+    {% endblock contenido %}
+	
+</body>
+</html>
