@@ -12,5 +12,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.Home, name = 'home'),
     #url aplicaciones
-    path('Noticias/', include('apps.noticias.urls'))
+    path('Noticias/', include('apps.noticias.urls')),
+    path('Quienes/', include('apps.quienes.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
