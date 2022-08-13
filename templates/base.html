@@ -28,32 +28,32 @@
 					<div class="navbar-end">
 						
 						<a class="navbar-item is-active" href="{% url 'home' %}">HOME</a>	
-
+						<!--
 						<a class="navbar-item" href="{% url 'quienes:quienes_somos' %}">QUIENES SOMOS</a>
+						
 						<a class="navbar-item">MISION</a>
 						<a class="navbar-item">VISION</a>
-						<a class="navbar-item">LUGAR</a>
+						<a class="navbar-item">LUGAR</a>-->
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link">QUIENES SOMOS</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item" href="{% url 'quienes:quienes_somos' %}">MISION/VISION</a>
+								
+								<a class="navbar-item">LUGAR</a>
+								
+							</div>
+						</div>
 						<a class="navbar-item">ARCHIVOS</a>
 						<a class="navbar-item" href="{% url 'noticias:listar_noticias' %}">NOTICIAS</a>
 						<a class="navbar-item">Help</a>
 						<div class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link">
-									Account
-								</a>
+							<a class="navbar-link">Cuenta</a>
 							<div class="navbar-dropdown">
-								<a class="navbar-item">
-										Dashboard
-									</a>
-								<a class="navbar-item">
-										Profile
-									</a>
-								<a class="navbar-item">
-										Settings
-									</a>
+								<a class="navbar-item">Dashboard</a>
+								<a class="navbar-item">Profile</a>
+								<a class="navbar-item">Settings</a>
 								<hr class="navbar-divider">
-								<div class="navbar-item">
-									Logout
-								</div>
+								<div class="navbar-item">Logout</div>
 							</div>
 						</div>
 					</div>
