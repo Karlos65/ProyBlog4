@@ -16,4 +16,15 @@
             <p>NO TIENE IMAGEN </p>
         {% endif %}
 
+        <br>
+
+        <div class="Cajacomentarios">
+        {% for coment in coments %}
+            <div class="comentario" style="background:lightblue;">
+            <h3>{{coment.usuario}}</h3>
+            <p>{{coment.cuerpo}}</p>
+            </div>
+        {% endfor %}
+        </div>
+
 {% endblock contenido %}

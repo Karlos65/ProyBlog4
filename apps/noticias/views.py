@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Noticia
+from .models import Noticia, Comentario
 # Create your views here.
 def Listar(request):
     #Creo el diccionario para pasar los datos al templates
@@ -20,6 +20,9 @@ def Detallar(request):
         if noticia:
             ctx = {}
             ctx['notis'] = noticia
+            comentarios = Comentario.objects.filter(titulo=noticia.id)
+            if comentarios:
+                ctx['coments'] = comentarios
         return render(request, 'noticias/noticia_detalles.html', ctx)
     else:
         return redirect(Listar(request))
