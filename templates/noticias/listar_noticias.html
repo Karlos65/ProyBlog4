@@ -11,7 +11,7 @@
         {% if n.autor %}
             <p>AUTOR: {{ n.autor }}</P>
         {% endif %}
-
+        <p>PUBLICADO: {{ n.creado }}</p>
         <p>CUERPO: {{ n.cuerpo }}</p>
         {% if n.imagen %}
             <img src="{{ n.imagen.url }}" width="100px" height="100px">
