@@ -5,19 +5,20 @@
 
 	<h1>NOTICIAS</h1>
     <br>
-    {% for n in notis %}
-        <h2>{{ n.titulo }}</h2>
-        <p>CATEGORIA: {{ n.categoria }}</p>
-        {% if n.autor %}
-            <p>AUTOR: {{ n.autor }}</P>
-        {% endif %}
-        <p>PUBLICADO: {{ n.creado }}</p>
-        <p>CUERPO: {{ n.cuerpo }}</p>
-        {% if n.imagen %}
-            <img src="{{ n.imagen.url }}" width="100px" height="100px">
-        {% else%}
-            <p>NO TIENE IMAGEN </p>
-        {% endif %}
-    {% endfor %}
-
+    <div class="caja_noticia">
+        {% for n in notis %}
+            <h2>{{ n.titulo }}</h2>
+            {% if n.autor %}
+                <p>AUTOR: {{ n.autor }}</P>
+            {% endif %}
+            <p>PUBLICADO: {{ n.creado }}</p>
+            <p>CATEGORIA: {{ n.categoria }}</p>
+            {% if n.imagen %}
+                <img src="{{ n.imagen.url }}"class="img_ancho">
+            {% else%}
+                <p>NO TIENE IMAGEN </p>
+            {% endif %}
+            <p>CUERPO: {{ n.cuerpo }}</p>
+        {% endfor %}
+    </div>
 {% endblock contenido %}

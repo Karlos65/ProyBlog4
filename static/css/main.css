@@ -103,5 +103,37 @@ html,body {
     margin: 1rem 5rem;
   }
 
+  /*DESARROLLO (C/BOOTSTRAP home.html)- LORE DAVALOS*/
+#desarrollo {
+  background-color: #f3fab6;
+  padding: 10px;
+}
+
+/*DESARROLLO (C/BOOTSTRAP listar_noticias.html)- LORE DAVALOS*/
+.caja_noticia {
+  font-family: inherit;
+  width: 300px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin: 30px; 
+  box-sizing: border-box;
+  background-color: #e3e4e6;
+}
+
+.caja_noticia h4 {
+  color: red ; 
+  padding: 5px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.img_ancho {
+  width: 260px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
