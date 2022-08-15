@@ -17,12 +17,3 @@ class Noticia(models.Model):
     
     def __str__(self):
         return self.titulo
-
-class Comentario(models.Model):
-    usuario = models.CharField(max_length=50, null=False, blank=False)
-    creado = models.DateField(auto_now_add=True)
-    cuerpo = models.TextField()
-    titulo = models.ForeignKey(Noticia, on_delete=models.CASCADE, null = True)
-
-    def __str__(self):
-        return self.cuerpo
