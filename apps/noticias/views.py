@@ -13,10 +13,9 @@ def Listar(request):
     
     return render(request,'noticias/listar_noticias.html',ctx)
 
-def Detallar(request):
-    if request.method == "GET":
-        titulo_noticia = request.GET['titulo']
-        noticia = Noticia.objects.get(titulo=titulo_noticia)
+def Detallar(request, titulo):
+    if titulo:
+        noticia = Noticia.objects.get(titulo=titulo)
         if noticia:
             ctx = {}
             ctx['notis'] = noticia

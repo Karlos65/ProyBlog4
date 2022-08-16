@@ -5,5 +5,5 @@ app_name = 'noticias'
 
 urlpatterns = [
     path('',views.Listar, name = 'listar_noticias'),
-    path('detalles/', views.Detallar, name = 'noticia_detalles')
+    path('detalles/<str:titulo>', views.Detallar, name = 'noticia_detalles')
 ]
