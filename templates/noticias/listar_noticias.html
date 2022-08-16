@@ -7,7 +7,7 @@
     <br>
     <div class="caja_noticia">
         {% for n in notis %}
-            <h2>{{ n.titulo }}</h2>
+        <a href="{% url 'noticias:noticia_detalles' %}?titulo={{n.titulo}}" ><h2>{{ n.titulo }}</h2></a>
             {% if n.autor %}
                 <p>AUTOR: {{ n.autor }}</P>
             {% endif %}
