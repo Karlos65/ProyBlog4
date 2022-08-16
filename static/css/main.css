@@ -48,7 +48,7 @@ h2 {
 
 
 h1{
-    color: red;
+    color: rgb(89, 0, 255);
     text-align:center;
     font-weight: bold;
     font-size: 500%;
@@ -112,7 +112,7 @@ html,body {
 /*DESARROLLO (C/BOOTSTRAP listar_noticias.html)- LORE DAVALOS*/
 .caja_noticia {
   font-family: inherit;
-  width: 300px;
+  width: 1200px;
   padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
