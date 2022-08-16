@@ -11,7 +11,7 @@
 
         <p>CUERPO: {{ notis.cuerpo }}</p>
         {% if notis.imagen %}
-            <img src="{{ n.imagen.url }}" width="100px" height="100px">
+            <img src="{{ notis.imagen.url }}" width="100px" height="100px">
         {% else%}
             <p>NO TIENE IMAGEN </p>
         {% endif %}
