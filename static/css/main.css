@@ -1,3 +1,4 @@
+
 :root{
   --primary-font-color1: #ffffff; 
   --primary-font-color2: #007bff;
@@ -48,7 +49,7 @@ h2 {
 
 
 h1{
-    color: rgb(89, 0, 255);
+    color: red;
     text-align:center;
     font-weight: bold;
     font-size: 500%;
@@ -112,7 +113,7 @@ html,body {
 /*DESARROLLO (C/BOOTSTRAP listar_noticias.html)- LORE DAVALOS*/
 .caja_noticia {
   font-family: inherit;
-  width: 1200px;
+  width: 300px;
   padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 20px;

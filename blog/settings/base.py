@@ -9,6 +9,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # Application definition
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGOUT_REDIRECT_URL = reverse_lazy('home')
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
