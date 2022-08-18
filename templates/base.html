@@ -44,9 +44,15 @@
 						<div class="navbar-item has-dropdown is-hoverable">
 							<a class="navbar-link">Cuenta</a>
 							<div class="navbar-dropdown">
-								<a class="navbar-item">Dashboard</a>
-								<a class="navbar-item">Profile</a>
-								<a class="navbar-item">Settings</a>
+								{% if user.is_authenticated %}
+									<span>HOLA {{user.username}}!!</span>
+									<a class="navbar-item" href="{% url 'logout' %}">Salir</a>
+								{% else %}
+									<a class="navbar-item" href="{% url 'login' %}">Ingresa</a>
+								{% endif %}
+								
+								<a class="navbar-item">Registrate</a>
+								
 								<hr class="navbar-divider">
 								<div class="navbar-item">Logout</div>
 							</div>
