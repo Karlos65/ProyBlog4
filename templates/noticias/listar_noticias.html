@@ -17,7 +17,7 @@
             <label>AUTORES</label>
             <BR>
             {% for autor in autores %}
-                <input type="checkbox" id="{{autor}}" value="{{autor}}">
+                <input type="radio" id="{{autor}}" value="{{autor}}" name="autor">
                 <label for="{{autor}}">{{autor}}</label>
                 <br>
             {% endfor %}
