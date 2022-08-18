@@ -1,16 +1,27 @@
 from django.shortcuts import render, redirect
-from .models import Noticia, Comentario
+from .models import Noticia, Comentario, Categoria
 # Create your views here.
 def Listar(request):
     #Creo el diccionario para pasar los datos al templates
     ctx = {}
     #Buscar lo que quiero de la BD
-    todas = Noticia.objects.all()
-    
+    todas = noticias = Noticia.objects.all()
+
+    # Filtrar por categoria
+    if ("categoria" in request.GET):
+        categoria = request.GET['categoria']
+        noticias = noticias.filter(categoria=categoria)
+
+    # Filtrar pro autor
+    if ("autor" in request.GET):
+        autor = request.GET['autor']
+        noticias = noticias.filter(autor=autor)
+
     #Pasarlo al template
-    ctx['notis'] = todas
-    
-    
+    ctx['notis'] = noticias
+    ctx['categorias'] = Categoria.objects.all()
+    ctx['autores'] = todas.values_list('autor', flat=True).distinct
+
     return render(request,'noticias/listar_noticias.html',ctx)
 
 def Detallar(request, titulo):

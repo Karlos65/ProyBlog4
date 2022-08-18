@@ -5,6 +5,25 @@
 
 	<h1>NOTICIAS</h1>
     <br>
+    <div class="caja_filtro" style="background-color:grey; color:white;">
+        <form action="{% url 'noticias:listar_noticias' %}">
+            <label>CATEGORIAS</label>
+            <BR>
+            {% for categoria in categorias %}
+                <input type="checkbox" name="categoria" id="{{categoria.nombre}}" value="{{categoria.pk}}">
+                <label for="{{categoria.nombre}}">{{categoria.nombre}}</label>
+                <br>
+            {% endfor %}
+            <label>AUTORES</label>
+            <BR>
+            {% for autor in autores %}
+                <input type="checkbox" id="{{autor}}" value="{{autor}}">
+                <label for="{{autor}}">{{autor}}</label>
+                <br>
+            {% endfor %}
+            <input type="submit" value="Filtrar">
+        </form>
+    </div>
     <div class="caja_noticia">
         {% for n in notis %}
         <a href="{% url 'noticias:noticia_detalles' n.titulo %}" ><h2>{{ n.titulo }}</h2></a>
