@@ -25,6 +25,8 @@
         </form>
     </div>
     <div class="caja_noticia">
+        {% if notis %}
+
         {% for n in notis %}
         <a href="{% url 'noticias:noticia_detalles' n.titulo %}" ><h2>{{ n.titulo }}</h2></a>
             {% if n.autor %}
@@ -39,5 +41,9 @@
             {% endif %}
             <p>CUERPO: {{ n.cuerpo }}</p>
         {% endfor %}
+
+        {% else %}
+        <h3>No existen noticias con los parametros ingresados</h3>
+        {% endif %}
     </div>
 {% endblock contenido %}
