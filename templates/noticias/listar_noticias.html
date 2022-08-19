@@ -24,26 +24,28 @@
             <input type="submit" value="Filtrar">
         </form>
     </div>
-    <div class="caja_noticia">
+    <div class="contenedor_noticias">
         {% if notis %}
 
         {% for n in notis %}
-        <a href="{% url 'noticias:noticia_detalles' n.titulo %}" ><h2>{{ n.titulo }}</h2></a>
-            {% if n.autor %}
-                <p>AUTOR: {{ n.autor }}</P>
-            {% endif %}
-            <p>PUBLICADO: {{ n.creado }}</p>
-            <p>CATEGORIA: {{ n.categoria }}</p>
-            {% if n.imagen %}
-                <img src="{{ n.imagen.url }}"class="img_ancho">
-            {% else%}
-                <p>NO TIENE IMAGEN </p>
-            {% endif %}
-            <p>CUERPO: {{ n.cuerpo }}</p>
-        {% endfor %}
+        <div class="caja_noticia">
+            <a href="{% url 'noticias:noticia_detalles' n.titulo %}" ><h2>{{ n.titulo }}</h2></a>
+                {% if n.autor %}
+                    <p>AUTOR: {{ n.autor }}</P>
+                {% endif %}
+                <p>PUBLICADO: {{ n.creado }}</p>
+                <p>CATEGORIA: {{ n.categoria }}</p>
+                {% if n.imagen %}
+                    <img src="{{ n.imagen.url }}"class="img_ancho">
+                {% else%}
+                    <p>NO TIENE IMAGEN </p>
+                {% endif %}
+                <p>CUERPO: {{ n.cuerpo }}</p>
+            {% endfor %}
 
-        {% else %}
-        <h3>No existen noticias con los parametros ingresados</h3>
+            {% else %}
+            <h3>No existen noticias con los parametros ingresados</h3>
+        </div>
         {% endif %}
     </div>
 {% endblock contenido %}
