@@ -10,7 +10,7 @@
             <label>CATEGORIAS</label>
             <BR>
             {% for categoria in categorias %}
-                <input type="checkbox" name="categoria" id="{{categoria.nombre}}" value="{{categoria.pk}}">
+                <input type="radio" name="categoria" id="{{categoria.nombre}}" value="{{categoria.pk}}">
                 <label for="{{categoria.nombre}}">{{categoria.nombre}}</label>
                 <br>
             {% endfor %}
@@ -24,7 +24,6 @@
             <input type="submit" value="Filtrar">
         </form>
     </div>
-    <div class="contenedor_noticias">
         {% if notis %}
 
         {% for n in notis %}
@@ -41,11 +40,9 @@
                     <p>NO TIENE IMAGEN </p>
                 {% endif %}
                 <p>CUERPO: {{ n.cuerpo }}</p>
+            </div>
             {% endfor %}
-
             {% else %}
-            <h3>No existen noticias con los parametros ingresados</h3>
-        </div>
-        {% endif %}
-    </div>
+                <h3>No existen noticias con los parametros ingresados</h3>
+            {% endif %}
 {% endblock contenido %}
