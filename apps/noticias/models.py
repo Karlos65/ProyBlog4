@@ -24,8 +24,7 @@ class Noticia(models.Model):
             final = "</span>"
             resumen = self.cuerpo[self.cuerpo.find(inicio)+len(inicio):self.cuerpo.rfind(final)]
         else:
-            resumen = (self.cuerpo[0:70])+"..."
-            print(resumen)
+            resumen = self.cuerpo[0:70]+"..."
         return resumen
 
 class Comentario(models.Model):
