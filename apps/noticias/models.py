@@ -17,7 +17,13 @@ class Noticia(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null = True)
     
     def __str__(self):
-        return self.titulo
+        inicio = '<span style="font-weight:bold;">'
+        if self.cuerpo.find(inicio):
+            final = "</span>"
+            resumen = self.cuerpo[self.cuerpo.find(inicio)+len(inicio):self.cuerpo.rfind(final)]
+        else:
+            resumen = self.cuerpo[:70]+"..."
+        return resumen
 
 class Comentario(models.Model):
     usuario = models.ForeignKey(Usuario, null=False, on_delete=models.CASCADE)
