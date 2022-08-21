@@ -9,7 +9,7 @@
             <p>AUTOR: {{ notis.autor }}</P>
         {% endif %}
 
-        <p>CUERPO: {{ notis.cuerpo }}</p>
+        <p>CUERPO: {{ notis.cuerpo|safe }}</p>
         {% if notis.imagen %}
             <img src="{{ notis.imagen.url }}" width="100px" height="100px">
         {% else%}
