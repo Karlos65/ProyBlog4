@@ -15,14 +15,17 @@ class Noticia(models.Model):
     autor = models.CharField(max_length=50, null=True, blank=True)
     imagen = models.ImageField(upload_to = 'noticias',null=True, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null = True)
-    
+
+    #Busca por una etiqueta en negrito, devuelve el valor entre la misma
+    #En caso de no encontrarla devuelve el cuerpo acortado
     def __str__(self):
         inicio = '<span style="font-weight:bold;">'
         if self.cuerpo.find(inicio):
             final = "</span>"
             resumen = self.cuerpo[self.cuerpo.find(inicio)+len(inicio):self.cuerpo.rfind(final)]
         else:
-            resumen = self.cuerpo[:70]+"..."
+            resumen = (self.cuerpo[0:70])+"..."
+            print(resumen)
         return resumen
 
 class Comentario(models.Model):
