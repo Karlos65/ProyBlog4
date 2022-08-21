@@ -21,7 +21,31 @@
                 <label for="{{autor}}">{{autor}}</label>
                 <br>
             {% endfor %}
+            <div class="Fecha">
+            <label>Fecha</label>
+            <br>
+                <div class="anio">
+                <label>Anio</label>
+                <br>
+                {% for anio in anios %}
+                    <input type="radio" id="{{anio}}" value="{{anio}}" name="fecha">
+                    <label for="{{anio}}">{{anio}}</label>
+                    <br>
+                {% endfor %}
+                </div>
+                <div class="meses">
+                <label>MES</label>
+                <br>
+                <select name="mes" id="mes">
+                    <option value="0">Seleccione un mes</option>
+                {% for mes in meses %}
+                    <option value="{{forloop.counter}}">{{mes}}</option>
+                {% endfor %}
+                </select>
+                </div>
+            </div>
             <input type="submit" value="Filtrar">
+            <a href="{% url 'noticias:listar_noticias' %}"><button>Limpiar</button></a>
         </form>
     </div>
         {% if notis %}
@@ -45,4 +69,5 @@
             {% else %}
                 <h3>No existen noticias con los parametros ingresados</h3>
             {% endif %}
+
 {% endblock contenido %}
