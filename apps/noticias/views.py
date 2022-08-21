@@ -42,7 +42,7 @@ def Listar(request, page=1):
     #Paso un numero predeterminado de noticias por pagina
     masPaginas=0
     if len(noticias)>noticiasXPagina:
-        masPaginas = -(len(noticias) // -noticiasXPagina)
+        masPaginas = roofDiv(len(noticias), noticiasXPagina)
         noticStart= noticiasXPagina*page-noticiasXPagina
         noticFinal = (noticiasXPagina)*page
         noticias= noticias[noticStart:noticFinal]
