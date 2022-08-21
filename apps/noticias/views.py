@@ -2,11 +2,17 @@ from django.shortcuts import render, redirect
 from .models import Noticia, Comentario, Categoria
 # Create your views here.
 
+
 #Meses
 meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre','Octubre',
          'Noviembre', 'Diciembre']
 
-def Listar(request):
+noticiasXPagina=3
+
+def roofDiv(div,divid):
+    return -(div//-divid)
+
+def Listar(request, page=1):
     #Creo el diccionario para pasar los datos al templates
     ctx = {}
     #Buscar lo que quiero de la BD
@@ -33,6 +39,16 @@ def Listar(request):
         if mes != "0":
             noticias = noticias.filter(creado__month=mes)
 
+    #Paso un numero predeterminado de noticias por pagina
+    masPaginas=0
+    if len(noticias)>noticiasXPagina:
+        masPaginas = -(len(noticias) // -noticiasXPagina)
+        noticStart= noticiasXPagina*page-noticiasXPagina
+        noticFinal = (noticiasXPagina)*page
+        print(f"ns {noticStart} nf {noticFinal}")
+        noticias= noticias[noticStart:noticFinal]
+
+
     #Pasarlo al template
     ctx['notis'] = noticias
     ctx['categorias'] = Categoria.objects.all()
@@ -41,7 +57,8 @@ def Listar(request):
     ctx['anios'] = todas.values_list('creado__year', flat=True).distinct
     #Paso array con meses para facilitar armado de template
     ctx['meses'] = meses
-
+    ctx['masdeunapag'] = list(range(1, masPaginas+1))
+    print(masPaginas)
     return render(request,'noticias/listar_noticias.html',ctx)
 
 def Detallar(request, titulo):
