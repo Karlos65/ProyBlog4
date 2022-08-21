@@ -25,7 +25,7 @@
             <label>Fecha</label>
             <br>
                 <div class="anio">
-                <label>Anio</label>
+                <label>Año</label>
                 <br>
                 {% for anio in anios %}
                     <input type="radio" id="{{anio}}" value="{{anio}}" name="fecha">
@@ -59,7 +59,7 @@
                 <p>PUBLICADO: {{ n.creado }}</p>
                 <p>CATEGORIA: {{ n.categoria }}</p>
                 {% if n.imagen %}
-                    <img src="{{ n.imagen.url }}"class="img_ancho">
+                    <img src="{{ n.imagen.url }}" class="img_ancho">
                 {% else%}
                     <p>NO TIENE IMAGEN </p>
                 {% endif %}
