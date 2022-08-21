@@ -45,7 +45,6 @@ def Listar(request, page=1):
         masPaginas = -(len(noticias) // -noticiasXPagina)
         noticStart= noticiasXPagina*page-noticiasXPagina
         noticFinal = (noticiasXPagina)*page
-        print(f"ns {noticStart} nf {noticFinal}")
         noticias= noticias[noticStart:noticFinal]
 
 
@@ -58,7 +57,6 @@ def Listar(request, page=1):
     #Paso array con meses para facilitar armado de template
     ctx['meses'] = meses
     ctx['masdeunapag'] = list(range(1, masPaginas+1))
-    print(masPaginas)
     return render(request,'noticias/listar_noticias.html',ctx)
 
 def Detallar(request, titulo):
