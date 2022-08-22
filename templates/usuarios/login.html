@@ -2,14 +2,17 @@
 {% load static %}
 
 {% block contenido %}
-
-	<h1>PAGINA LOGIN</h1>
-	<br>
-    <form method="POST">{% csrf_token %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main2.css' %}">
+    <div class="login">
+    <!-- login header -->
+      <h1 id="header">Registrate</h1>
+    <!-- start da login goodness -->
+      <form id="form" method="POST">{% csrf_token %}
         {{form.errors}}
-        <input type="text" name="username" placeholder="USUARIO">
-        <input type="password" name="password" placeholder="PASSWORD">
-
+        <input type="text" placeholder="Usuario" maxlength="16" name="username"><br><br>
+        <input type="password" placeholder="Contraseña" name="password"><br><br>
         <input type="submit" name="" value="ENVIAR">
-    </form>
+      </form>
+    </div>
+
 {% endblock contenido %}
