@@ -33,5 +33,8 @@ class Comentario(models.Model):
     cuerpo = models.TextField()
     titulo = models.ForeignKey(Noticia, on_delete=models.CASCADE, null = True)
 
+    class Meta:
+        ordering = ['creado']
+
     def __str__(self):
         return self.cuerpo
