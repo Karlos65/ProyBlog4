@@ -5,20 +5,76 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/main3.css' %}">
 	<h1>NOTICIAS</h1>
     <br>
-    <div class="caja_noticia">
-        {% for n in notis %}
-        <a href="{% url 'noticias:noticia_detalles' %}?titulo={{n.titulo}}" ><h2>{{ n.titulo }}</h2></a>
-            {% if n.autor %}
-                <p>AUTOR: {{ n.autor }}</P>
-            {% endif %}
-            <p>PUBLICADO: {{ n.creado }}</p>
-            <p>CATEGORIA: {{ n.categoria }}</p>
-            {% if n.imagen %}
-                <img src="{{ n.imagen.url }}"class="img_ancho">
-            {% else%}
-                <p>NO TIENE IMAGEN </p>
-            {% endif %}
-            <p>CUERPO: {{ n.cuerpo }}</p>
-        {% endfor %}
+    <div class="caja_filtro" style="background-color:grey; color:white;">
+        <form action="{% url 'noticias:listar_noticias' %}">
+            <label>CATEGORIAS</label>
+            <BR>
+            {% for categoria in categorias %}
+                <input type="radio" name="categoria" id="{{categoria.nombre}}" value="{{categoria.pk}}">
+                <label for="{{categoria.nombre}}">{{categoria.nombre}}</label>
+                <br>
+            {% endfor %}
+            <label>AUTORES</label>
+            <BR>
+            {% for autor in autores %}
+                <input type="radio" id="{{autor}}" value="{{autor}}" name="autor">
+                <label for="{{autor}}">{{autor}}</label>
+                <br>
+            {% endfor %}
+            <div class="Fecha">
+            <label>Fecha</label>
+            <br>
+                <div class="anio">
+                <label>Año</label>
+                <br>
+                {% for anio in anios %}
+                    <input type="radio" id="{{anio}}" value="{{anio}}" name="fecha">
+                    <label for="{{anio}}">{{anio}}</label>
+                    <br>
+                {% endfor %}
+                </div>
+                <div class="meses">
+                <label>MES</label>
+                <br>
+                <select name="mes" id="mes">
+                    <option value="0">Seleccione un mes</option>
+                {% for mes in meses %}
+                    <option value="{{forloop.counter}}">{{mes}}</option>
+                {% endfor %}
+                </select>
+                </div>
+            </div>
+            <input type="submit" value="Filtrar" style="background-color:green">
+            <a href="{% url 'noticias:listar_noticias' %}"><button style="background-color:yellow">Limpiar</button></a>
+        </form>
     </div>
+        {% if notis %}
+        {% for n in notis %}
+        <div class="caja_noticia">
+            <a href="{% url 'noticias:noticia_detalles' n.titulo %}" ><h2>{{ n.titulo }}</h2></a>
+                {% if n.autor %}
+                    <p>AUTOR: {{ n.autor }}</P>
+                {% endif %}
+                <p>PUBLICADO: {{ n.creado }}</p>
+                <p>CATEGORIA: {{ n.categoria }}</p>
+                {% if n.imagen %}
+                    <img src="{{ n.imagen.url }}" class="img_ancho">
+                {% else%}
+                    <p>NO TIENE IMAGEN </p>
+                {% endif %}
+                <p>{{ n }}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+                <h3>No existen noticias con los parametros ingresados</h3>
+            {% endif %}
+
+
+            <div class="numeroPaginas">
+            {% if masdeunapag %}
+                {% for pag in masdeunapag %}
+                    <a href="{% url 'noticias:listar_noticias' pag%}">{{pag}}</a>
+                {% endfor %}
+            {% endif %}
+            </div>
 {% endblock contenido %}
