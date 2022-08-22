@@ -19,6 +19,31 @@
         <br>
 
         <div class="Cajacomentarios">
+            {% if user.is_authenticated %}
+                <div class="ComentarUsuario">
+                    <label>COMENTARIOS</label>
+                    <form method="post">
+                        <input type="hidden" name="IdNoticia" value="{{notis.pk}}">
+                        {% csrf_token %}
+                        {{ comment_form.as_p }}
+                      <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+                    </form>
+                </div>
+                {% if new_comment %}
+                <div class="comentarioUsuario">
+                    <div class="comentario" style="background:green;">
+                    <h3>{{new_comment.usuario}}</h3>
+                    <p>{{new_comment.cuerpo}}</p>
+                    <h7>{{new_comment.creado}}</h7>
+                    </div>
+                    <br>
+                </div>
+                {% endif %}
+            {% else %}
+            <div class="IniciaSesion">
+                <h6>Inicia sesión para unirte a la conversación</h6>
+            </div>
+            {% endif %}
         {% for coment in coments %}
             <div class="comentario" style="background:lightblue;">
             <h3>{{coment.usuario}}</h3>

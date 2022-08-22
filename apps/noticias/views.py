@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Noticia, Comentario, Categoria
+from django import forms
+from .forms import FormularioComentar
 # Create your views here.
 
 
@@ -68,6 +70,24 @@ def Detallar(request, titulo):
             comentarios = Comentario.objects.filter(titulo=noticia.id)
             if comentarios:
                 ctx['coments'] = comentarios
+            new_comment=None
+            if request.method == 'POST' and request.user.is_authenticated:
+                comment_form = FormularioComentar(data=request.POST)
+                print(comment_form.is_valid())
+                if comment_form.is_valid():
+                    idNoticia=request.POST['IdNoticia']
+                    # Create Comment object but don't save to database yet
+                    new_comment = comment_form.save(commit=False)
+                    # Assign the current post to the comment
+                    new_comment.titulo = Noticia.objects.only('titulo').get(pk=idNoticia)
+                    # Assign the user to the comment
+                    new_comment.usuario = request.user
+                    # Save the comment to the database
+                    new_comment.save()
+            else:
+                 comment_form = FormularioComentar()
+            ctx['comment_form'] = comment_form
+            ctx['new_comment'] = new_comment
         return render(request, 'noticias/noticia_detalles.html', ctx)
     else:
         return redirect(Listar(request))
