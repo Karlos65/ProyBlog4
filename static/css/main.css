@@ -104,22 +104,29 @@ html,body {
     margin: 1rem 5rem;
   }
 
-  /*DESARROLLO (C/BOOTSTRAP home.html)- LORE DAVALOS*/
+ 
+
+/*DESARROLLO (C/BOOTSTRAP home.html)- LORE DAVALOS*/
 #desarrollo {
   background-color: #f3fab6;
   padding: 10px;
 }
 
 /*DESARROLLO (C/BOOTSTRAP listar_noticias.html)- LORE DAVALOS*/
-.caja_noticia {
-  font-family: inherit;
-  width: 300px;
+.caja_noticia, .noticia_entera, .Cajacomentarios {
+  font-family: inherit; 
   padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
   margin: 30px; 
   box-sizing: border-box;
+ 
+  float: left;
+}
+
+.caja_noticia {
+  width: 320px;
   background-color: #e3e4e6;
 }
 
@@ -136,3 +143,79 @@ html,body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.txt_rojo {
+  text-decoration: none;
+  color: red;
+}
+
+
+.txt_secundario {
+  font-size: 10px;
+  
+}
+
+.noticia_entera {
+  width: 95%;
+  text-align: center;
+  background-color: #e3e4e6;
+}
+
+.img_ancho_2 {
+  width: 600px;
+}
+
+.Cajacomentarios {
+  width: 95%;
+  background-color: #ffffff;
+}
+
+footer {
+  background-color: #a3a3a3;
+  padding-bottom: 20px;
+}
+
+#contacto {
+  text-align: center;
+}
+
+#btn_redes_sociales {
+  text-align: center;
+}
+
+#btn_redes_sociales ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+#btn_redes_sociales ul li {
+  display: inline;
+}
+
+#btn_redes_sociales ul li a {
+  width: 80px;
+  height: 50px;
+  background-color: #a3a3a3;
+  margin-bottom: 5px;
+  display: inline-block;
+  /*color: ;*/
+  text-decoration: none;
+  text-align: center;
+  line-height: 0px;
+  /*font-weight: bold;*/
+}
+
+#btn_redes_sociales ul li a {
+  background-color: #fcdb03;
+}
+
+#inf_TFI {
+  text-align: center;
+  font-size: 12px;
+}
+
+.txt_footer {
+  color: #d46a00; 
+}
+
