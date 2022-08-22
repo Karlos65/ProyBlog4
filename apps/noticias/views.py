@@ -73,7 +73,6 @@ def Detallar(request, titulo):
             new_comment=None
             if request.method == 'POST' and request.user.is_authenticated:
                 comment_form = FormularioComentar(data=request.POST)
-                print(comment_form.is_valid())
                 if comment_form.is_valid():
                     idNoticia=request.POST['IdNoticia']
                     # Create Comment object but don't save to database yet
