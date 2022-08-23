@@ -23,17 +23,20 @@ def Listar(request, page=1):
     # Filtrar por categoria
     if "categoria" in request.GET:
         categoria = request.GET['categoria']
-        noticias = noticias.filter(categoria=categoria)
+        if categoria != "0":
+            noticias = noticias.filter(categoria=categoria)
 
     # Filtrar por autor
     if "autor" in request.GET:
         autor = request.GET['autor']
-        noticias = noticias.filter(autor=autor)
+        if autor != "0":
+            noticias = noticias.filter(autor=autor)
 
     # Filtrar por Anio
     if "anio" in request.GET:
         anio = request.GET['anio']
-        noticias = noticias.filter(creado__year=anio)
+        if anio != "0":
+            noticias = noticias.filter(creado__year=anio)
 
     # Filtrar por mes
     if "mes" in request.GET:
