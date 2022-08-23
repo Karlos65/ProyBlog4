@@ -10,7 +10,7 @@
             <label>CATEGORIAS</label>
             <BR>
             <select name="categoria" id="categoria">
-                <option value="0">Seleccion una categoria</option>
+                <option value="0">Seleccione una categoria</option>
                 {% for categoria in categorias %}
                 <option value="{{categoria.pk}}">{{categoria.nombre}}</option>
                 {% endfor %}
@@ -19,9 +19,13 @@
             <label>AUTORES</label>
             <BR>
             <select name="autor" id="autor">
-                <option value="0">Seleccion un autor</option>
+                <option value="0">Seleccione un autor</option>
                 {% for autor in autores %}
-                <option value="{{autor}}" name="autor">{{autor}}</option>
+                {% if autor %}
+                    <option value="{{autor}}" name="autor">{{autor}}</option>
+                {% else %}
+                    <option value="" name="autor">Sin autor</option>
+                {% endif %}
                 {% endfor %}
             </select>
             <div class="Fecha">
