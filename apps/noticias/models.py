@@ -20,7 +20,7 @@ class Noticia(models.Model):
     #En caso de no encontrarla devuelve el cuerpo acortado
     def __str__(self):
         inicio = '<span style="font-weight:bold;">'
-        if self.cuerpo.find(inicio):
+        if self.cuerpo.find(inicio) >= 0:
             final = "</span>"
             resumen = self.cuerpo[self.cuerpo.find(inicio)+len(inicio):self.cuerpo.rfind(final)]
         else:
