@@ -30,7 +30,10 @@ def Listar(request, page=1):
     if "autor" in request.GET:
         autor = request.GET['autor']
         if autor != "0":
-            noticias = noticias.filter(autor=autor)
+            if autor == "":
+                noticias = noticias.filter(autor__isnull=True)
+            else:
+                noticias = noticias.filter(autor=autor)
 
     # Filtrar por Anio
     if "anio" in request.GET:
