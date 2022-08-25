@@ -2,10 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 /* sets whole page to Open Sans and sets background color */
-body {
-  font-family: "Open Sans", "sans-serif";
-  background-image: url(http://benague.ca/files/congruent_outline.png);
-}
+
 
 /* login div */
 .login {
@@ -18,7 +15,7 @@ body {
 .registro {
   background-color: #eee;
   width: 420px;
-  height: 312px;
+  height: 560px;
   margin: 0 auto;
   padding: 0;
 }
@@ -65,7 +62,7 @@ input:focus:not([type="submit"]) {
 input[type="submit"] {
   padding: 15px 25px;
   font-size: 22px;
-  width: 420px;
+  width: 370px;
   color: #fff;
   position: relative;
   display: inline-block;
@@ -83,4 +80,35 @@ input[type="submit"]:active {
 
 input[type="submit"]:hover {
   background-color: #6fc6ff;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: 62,5%;
+}
+
+.form__input {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
 }
