@@ -60,7 +60,7 @@ def Listar(request, page=1):
     ctx['notis'] = noticias
     ctx['categorias'] = Categoria.objects.all()
     #Obtengo todos los autores de las noticias y los filtro de forma que no se repitan
-    ctx['autores'] = todas.values_list('autor', flat=True).distinct
+    ctx['autores'] = todas.exclude(autor__isnull=True).values_list('autor', flat=True).distinct
     ctx['anios'] = todas.values_list('creado__year', flat=True).distinct
     #Paso array con meses para facilitar armado de template
     ctx['meses'] = meses

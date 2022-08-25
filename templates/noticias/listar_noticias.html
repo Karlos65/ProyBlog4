@@ -20,12 +20,9 @@
             <BR>
             <select name="autor" id="autor">
                 <option value="0">Seleccione un autor</option>
+                <option value="">Sin autor</option>
                 {% for autor in autores %}
-                {% if autor %}
                     <option value="{{autor}}" name="autor">{{autor}}</option>
-                {% else %}
-                    <option value="" name="autor">Sin autor</option>
-                {% endif %}
                 {% endfor %}
             </select>
             <div class="Fecha">
