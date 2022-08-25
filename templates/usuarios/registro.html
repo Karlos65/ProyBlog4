@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/main2.css' %}">
     
 <div class="registro">
-    <form action="" method="post">{% csrf_token %}         
+    <form action="" method="POST">{% csrf_token %}         
          <h1>Registrate</h1>
          <p><input type="text" placeholder="Nombre" name="first_name" required id="id_first_name"></p>
          <p><input type="text" placeholder="Apellido" name="last_name" required id="id_last_name"></p>
@@ -14,7 +14,5 @@
           <p><input type="submit" class="btn btn-primary btn-block" value="Confirmar"></p>
     </form>
 </div>
-    
-  
-
+ 
 {% endblock %}
