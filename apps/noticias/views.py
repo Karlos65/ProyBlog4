@@ -23,17 +23,23 @@ def Listar(request, page=1):
     # Filtrar por categoria
     if "categoria" in request.GET:
         categoria = request.GET['categoria']
-        noticias = noticias.filter(categoria=categoria)
+        if categoria != "0":
+            noticias = noticias.filter(categoria=categoria)
 
     # Filtrar por autor
     if "autor" in request.GET:
         autor = request.GET['autor']
-        noticias = noticias.filter(autor=autor)
+        if autor != "0":
+            if autor == "":
+                noticias = noticias.filter(autor__isnull=True)
+            else:
+                noticias = noticias.filter(autor=autor)
 
     # Filtrar por Anio
     if "anio" in request.GET:
         anio = request.GET['anio']
-        noticias = noticias.filter(creado__year=anio)
+        if anio != "0":
+            noticias = noticias.filter(creado__year=anio)
 
     # Filtrar por mes
     if "mes" in request.GET:
@@ -54,7 +60,7 @@ def Listar(request, page=1):
     ctx['notis'] = noticias
     ctx['categorias'] = Categoria.objects.all()
     #Obtengo todos los autores de las noticias y los filtro de forma que no se repitan
-    ctx['autores'] = todas.values_list('autor', flat=True).distinct
+    ctx['autores'] = todas.exclude(autor__isnull=True).values_list('autor', flat=True).distinct
     ctx['anios'] = todas.values_list('creado__year', flat=True).distinct
     #Paso array con meses para facilitar armado de template
     ctx['meses'] = meses
