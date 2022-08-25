@@ -15,6 +15,13 @@ body {
   margin: 0 auto;
   padding: 0;
 }
+.registro {
+  background-color: #eee;
+  width: 420px;
+  height: 312px;
+  margin: 0 auto;
+  padding: 0;
+}
 
 /* login header */
 h1 {
