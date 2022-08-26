@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'apps.usuarios',
     'apps.noticias',
     'apps.quienes',
+    'apps.eventos',
 ]
 
 MIDDLEWARE = [
