@@ -15,9 +15,11 @@ urlpatterns = [
     path('',views.Home, name = 'home'),
     path('login/',auth.LoginView.as_view(template_name='usuarios/login.html'),name='login'),
     path('logout/',auth.LogoutView.as_view(),name="logout"),
+    path('Ubicacion/', views.Ubicacion, name = 'ubicacion'),
     #url aplicaciones
     path('Noticias/', include('apps.noticias.urls')),
     path('Quienes/', include('apps.quienes.urls')),
     path('Usuario/', include('apps.usuarios.urls')),
-    path('Evento/', include('apps.eventos.urls'))
+    path('Evento/', include('apps.eventos.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
