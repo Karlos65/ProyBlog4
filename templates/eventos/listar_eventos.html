@@ -7,15 +7,15 @@
     <br>
     {% for e in even %}
         <h2>{{ e.titulo }}</h2>
-        
-        
-
-        <p>CUERPO: {{ e.cuerpo }}</p>
+        <p>Publicado: {{ e.creado }}</p>
         {% if e.imagen %}
-            <img src="{{ e.imagen.url }}" width="100px" height="100px">
+            <img src="{{ e.imagen.url }}" width="400px" height="600px">
         {% else%}
             <p>NO TIENE IMAGEN </p>
         {% endif %}
+        
+        <p>{{ e.cuerpo }}</p>
+        
         
     {% endfor %}
     
