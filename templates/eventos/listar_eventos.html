@@ -7,7 +7,7 @@
     <br>
     {% for e in even %}
         <h2>{{ e.titulo }}</h2>
-        <p>Publicado: {{ e.creado }} --  Lugar: {{ e.lugar }}</p>
+        <p>Publicado: {{ e.creado }} --  Lugar: {{ e.lugar }} -- Categoria: {{ e.categoria }} -- Modalidad: {{ e.modalidad}}</p>
         {% if e.imagen %}
             <img src="{{ e.imagen.url }}" width="400px" height="600px">
         {% else%}
