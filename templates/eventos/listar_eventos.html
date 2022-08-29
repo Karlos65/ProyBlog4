@@ -5,6 +5,24 @@
 
 	<h1>EVENTOS</h1>
     <br>
+    <div class="caja_filtro" style="background-color:grey; color:white;">
+        <form action="{% url 'eventos:listar_eventos' %}">
+            <label>FILTRAR POR CATEGORIAS</label>
+            <BR>
+            <select name="categoria" id="categoria">
+                <option value="0">Seleccione una categoria</option>
+                {% for categoria in categorias %}
+                <option value="{{categoria.pk}}">{{categoria.nombre}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Filtrar" style="background-color:green">
+            <a href="{% url 'eventos:listar_eventos' %}"><button style="background-color:yellow">Limpiar</button></a>
+
+            <br>
+
+        </form>
+    </div>
+
     {% for e in even %}
         <h2>{{ e.titulo }}</h2>
         <p>Publicado: {{ e.creado }} --  Lugar: {{ e.lugar }} -- Categoria: {{ e.categoria }} -- Modalidad: {{ e.modalidad}}</p>
