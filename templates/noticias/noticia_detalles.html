@@ -4,12 +4,13 @@
 {% block contenido %}
     <div class="noticia_entera">
     <h2>{{ notis.titulo }}</h2>
-        <p>CATEGORIA: {{ notis.categoria }}</p>
+    <br>    
+    <!-- <p>CATEGORIA: {{ notis.categoria }}</p>
         {% if notis.autor %}
             <p>AUTOR: {{ notis.autor }}</P>
-        {% endif %}
+        {% endif %} -->
 
-        <p>CUERPO: {{ notis.cuerpo|safe }}</p>
+            <p>CUERPO: {{ notis.cuerpo|safe }}</p>
         {% if notis.imagen %}
             <img src="{{ notis.imagen.url }}" class="img_ancho_2">
         {% else%}

@@ -7,79 +7,95 @@
     <br>
     <div class="caja_filtro" style="background-color:grey; color:white;">
         <form action="{% url 'noticias:listar_noticias' %}">
-            <label>CATEGORIAS</label>
-            <BR>
-            <select name="categoria" id="categoria">
-                <option value="0">Seleccione una categoria</option>
-                {% for categoria in categorias %}
-                <option value="{{categoria.pk}}">{{categoria.nombre}}</option>
-                {% endfor %}
-            </select>
-            <br>
-            <label>AUTORES</label>
-            <BR>
-            <select name="autor" id="autor">
-                <option value="0">Seleccione un autor</option>
-                <option value="">Sin autor</option>
-                {% for autor in autores %}
-                    <option value="{{autor}}" name="autor">{{autor}}</option>
-                {% endfor %}
-            </select>
-            <div class="Fecha">
-            <label>Fecha</label>
-            <br>
-                <div class="anio">
-                <label>Año</label>
-                <br>
-                <select name="anio" id="">
-                    <option value="0">Seleccione un año</option>
-                    {% for anio in anios %}
-                    <option value="{{anio}}">{{anio}}</option>
+            <ul id="btn_filtros">
+                <li>
+                <label>CATEGORIAS</label>
+                <BR>
+                <select name="categoria" id="categoria">
+                    <option value="0">Seleccione una categoria</option>
+                    {% for categoria in categorias %}
+                    <option value="{{categoria.pk}}">{{categoria.nombre}}</option>
                     {% endfor %}
                 </select>
-                </div>
-                <div class="meses">
-                <label>MES</label>
-                <br>
-                <select name="mes" id="mes">
-                    <option value="0">Seleccione un mes</option>
-                {% for mes in meses %}
-                    <option value="{{forloop.counter}}">{{mes}}</option>
-                {% endfor %}
+                </li>
+    
+                <li>           
+                <label>AUTORES</label>
+                <BR>
+                <select name="autor" id="autor">
+                    <option value="0">Seleccione un autor</option>
+                    <option value="">Sin autor</option>
+                    {% for autor in autores %}
+                        <option value="{{autor}}" name="autor">{{autor}}</option>
+                    {% endfor %}
                 </select>
-                </div>
-            </div>
-            <input type="submit" value="Filtrar" style="background-color:green">
-            <a href="{% url 'noticias:listar_noticias' %}"><button style="background-color:yellow">Limpiar</button></a>
-        </form>
+                </li>
+    
+                <li>
+                <!-- <div class="Fecha">
+                <label>Fecha</label> -->
+                <!-- <br> -->
+                    <div class="anio">
+                    <label>Año</label>
+                    <br>
+                    <select name="anio" id="">
+                        <option value="0">Seleccione un año</option>
+                        {% for anio in anios %}
+                        <option value="{{anio}}">{{anio}}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="meses">
+                    <label>MES</label>
+                    <br>
+                    <select name="mes" id="mes">
+                        <option value="0">Seleccione un mes</option>
+                    {% for mes in meses %}
+                        <option value="{{forloop.counter}}">{{mes}}</option>
+                    {% endfor %}
+                    </select>
+                    </div>
+                <!-- </div> -->
+                </li>
+                <li>
+                <input type="submit" value="Filtrar" style="background-color:#7199e3; margin: 35%; margin-right: 30%"  >
+                </li>
+                <li>  
+                <a href="{% url 'noticias:listar_noticias' %}"><button style="background-color:#7199e3; margin: 30%">Limpiar</button></a>
+                </li>
+                </ul>
+    
+            </form>
     </div>
         {% if notis %}
         {% for n in notis %}
         <div class="caja_noticia">
             <a href="{% url 'noticias:noticia_detalles' n.titulo %}" ><h2>{{ n.titulo }}</h2></a>
-                {% if n.autor %}
-                    <p>AUTOR: {{ n.autor }}</P>
-                {% endif %}
-                <p>PUBLICADO: {{ n.creado }}</p>
-                <p>CATEGORIA: {{ n.categoria }}</p>
-                {% if n.imagen %}
-                    <img src="{{ n.imagen.url }}" class="img_ancho">
-                {% else%}
-                    <p>NO TIENE IMAGEN </p>
-                {% endif %}
-                <p>{{ n }}</p>
-            </div>
-            {% endfor %}
-            {% else %}
-                <h3>No existen noticias con los parametros ingresados</h3>
+                
+            <p><span class="txt_secundario"> {{ n.creado }} - CATEGORIA: {{ n.categoria }} - AUTOR: {{ n.autor }}</span></p>
+           
+            {% if n.imagen %}
+                <img src="{{ n.imagen.url }}" class="img_ancho">
+            {% else%}
+                <p>NO TIENE IMAGEN </p>
             {% endif %}
+            <p>{{ n.resumen }}</p>
+            <a href="{% url 'noticias:noticia_detalles' n.titulo %}" ><p>Seguir leyendo...</p></a>
+            
+        </div>
+        {% endfor %}
+        {% else %}
+            <h3>No existen noticias con los parametros ingresados</h3>
+        {% endif %}
 
 
-            <div class="numeroPaginas">
+        <div class="numeroPaginas">
             {% if masdeunapag %}
-                {% for pag in masdeunapag %}
-                    <a href="{% url 'noticias:listar_noticias' pag%}">{{pag}}</a>
-                {% endfor %}
+            {% for pag in masdeunapag %}
+                <a href="{% url 'noticias:listar_noticias' pag%}">{{pag}}</a>
+            {% endfor %}
             {% endif %}
-            </div>
+        </div>
 {% endblock contenido %}

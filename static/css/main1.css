@@ -5908,8 +5908,9 @@ print {
 }
 
 .navbar {
-    background-color: #fff;
+    background-color: #c7c8c9;
     min-height: 3.25rem;
+    /*height: auto;*/
     position: relative;
     z-index: 30
 }
@@ -6778,7 +6779,7 @@ a.navbar-item:hover {
 }
 
 .navbar-item img {
-    max-height: 1.75rem
+    max-height: 3.75rem
 }
 
 .navbar-item.has-dropdown {

@@ -5,7 +5,8 @@
 
 	<h1>EVENTOS</h1>
     <br>
-    <div class="caja_filtro" style="background-color:grey; color:white;">
+    <div class="caja_filtro" style="background-color:grey; color:white; padding-bottom: 1%; display: flex;
+  justify-content: center">
         <form action="{% url 'eventos:listar_eventos' %}">
             <label>FILTRAR POR CATEGORIAS</label>
             <BR>
@@ -15,8 +16,8 @@
                 <option value="{{categoria.pk}}">{{categoria.nombre}}</option>
                 {% endfor %}
             </select>
-            <input type="submit" value="Filtrar" style="background-color:green">
-            <a href="{% url 'eventos:listar_eventos' %}"><button style="background-color:yellow">Limpiar</button></a>
+            <input type="submit" value="Filtrar" style="background-color:#7199e3">
+            <a href="{% url 'eventos:listar_eventos' %}"><button style="background-color:#7199e3">Limpiar</button></a>
 
             <br>
 
@@ -24,15 +25,25 @@
     </div>
 
     {% for e in even %}
-        <h2>{{ e.titulo }}</h2>
-        <p>Publicado: {{ e.creado }} --  Lugar: {{ e.lugar }} -- Categoria: {{ e.categoria }} -- Modalidad: {{ e.modalidad}}</p>
-        {% if e.imagen %}
-            <img src="{{ e.imagen.url }}" width="400px" height="600px">
-        {% else%}
-            <p>NO TIENE IMAGEN </p>
-        {% endif %}
-        
-        <p>{{ e.cuerpo }}</p>
+    <div id="caja_eventos" class="container-fluid">
+        <div class="row mod_eventos" >
+            
+    
+            <div class="col-lg-4 col-sm-6" class="img_evento">     
+                {% if e.imagen %}
+                     <img src="{{ e.imagen.url }}" width="100%" height="auto">
+                 {% else%}
+                    <p>NO TIENE IMAGEN </p>
+                 {% endif %}
+                <p>Publicado: {{ e.creado }}</p>
+            </div>
+
+            <div class="col-lg-7 col-sm-6" class="cuerpo_evento">
+                <h2>{{ e.titulo }}</h2>
+                <p>{{ e.cuerpo }}</p>
+            </div>
+        </div>
+    </div>       
         
         
     {% endfor %}

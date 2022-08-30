@@ -9,15 +9,19 @@
   background-color: #eee;
   width: 420px;
   height: 312px;
-  margin: 0 auto;
+  margin: 2% auto;
   padding: 0;
+  padding-bottom: 5%;
+  margin-bottom: 5%;
 }
 .registro {
   background-color: #eee;
   width: 420px;
-  height: 560px;
-  margin: 0 auto;
+  /*height: 560px;*/
+  margin: 2% auto;
   padding: 0;
+  padding-bottom: 2%;
+  margin-bottom: 2%;
 }
 
 /* login header */
