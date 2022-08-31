@@ -23,7 +23,7 @@
 
         </form>
     </div>
-
+<!-- <seccion id="caja_eventos"> -->
     {% for e in even %}
     <div id="caja_eventos" class="container-fluid">
         <div class="row mod_eventos" >
@@ -35,7 +35,7 @@
                  {% else%}
                     <p>NO TIENE IMAGEN </p>
                  {% endif %}
-                <p>Publicado: {{ e.creado }}</p>
+                 <p><span class="txt_secundario">Publicado: {{ e.creado }}  --  Lugar: {{ e.lugar }} -- Categoria: {{ e.categoria }} -- Modalidad: {{ e.modalidad}}</span></p></p>
             </div>
 
             <div class="col-lg-7 col-sm-6" class="cuerpo_evento">

@@ -10,7 +10,7 @@
             <p>AUTOR: {{ notis.autor }}</P>
         {% endif %} -->
 
-            <p>CUERPO: {{ notis.cuerpo|safe }}</p>
+            <p>{{ notis.cuerpo|safe }}</p>
         {% if notis.imagen %}
             <img src="{{ notis.imagen.url }}" class="img_ancho_2">
         {% else%}
@@ -43,6 +43,7 @@
                 {% endif %}
             {% else %}
             <div class="IniciaSesion">
+                <h5>COMENTARIOS:</h5>
                 <h6>Inicia sesión para unirte a la conversación</h6>
             </div>
             {% endif %}
